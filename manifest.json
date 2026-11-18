@@ -1,0 +1,57 @@
+{
+  "manifest_version": 3,
+  "name": "Anti-DoomScroll",
+  "version": "1.0.0",
+  "description": "Don't let the algorithm cook. Zero rage-bait, just immaculate screen time.",
+  "icons": {
+    "16": "anti.png",
+    "32": "anti.png",
+    "48": "anti.png",
+    "128": "anti.png"
+  },
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "*://*.twitter.com/*",
+    "*://*.x.com/*",
+    "*://*.youtube.com/*",
+    "*://*.instagram.com/*",
+    "https://huggingface.co/*",
+    "https://cdn-lfs.huggingface.co/*",
+    "https://cdn.jsdelivr.net/*"
+  ],
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "Anti-DoomScroll",
+    "default_icon": {
+      "16": "anti.png",
+      "32": "anti.png",
+      "48": "anti.png",
+      "128": "anti.png"
+    }
+  },
+  "background": {
+    "service_worker": "src/background/index.ts",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.twitter.com/*",
+        "*://*.x.com/*",
+        "*://*.youtube.com/*",
+        "*://*.instagram.com/*"
+      ],
+      "js": [
+        "src/content/index.ts"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self';"
+  }
+}
