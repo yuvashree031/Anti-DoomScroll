@@ -1,4 +1,4 @@
-# Anti-DoomScroll
+# <img src="anti.png" width="40" alt="Logo" /> Anti-DoomScroll# Anti-DoomScroll
 
 Don't let the algorithm cook. Zero rage-bait, just immaculate screen time.
 
